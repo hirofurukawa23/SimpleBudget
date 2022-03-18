@@ -3,3 +3,8 @@
 ################################################################################
 
 /SimpleBudget/UnitTests/obj
+/SimpleBudget/SimpleBudget/obj
+/SimpleBudget/Domain/obj
+/SimpleBudget/Domain/bin/Debug/net6.0
+/SimpleBudget/.vs/SimpleBudget
+/SimpleBudget/UnitTests/bin/Debug/net6.0
