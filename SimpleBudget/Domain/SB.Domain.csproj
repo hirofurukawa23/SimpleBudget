@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Entities\" />
     <Folder Include="Factories\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>
