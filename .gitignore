@@ -9,3 +9,8 @@
 /SimpleBudget/.vs/SimpleBudget
 /SimpleBudget/UnitTests/bin/Debug/net6.0
 /SimpleBudget/SimpleBudget/bin/Debug/net6.0-windows
+/SimpleBudget/SB.Application/bin/Debug/net6.0
+/SimpleBudget/SB.Application/obj
+/SimpleBudget/SB.Infrastructures/bin/Debug/net6.0
+/SimpleBudget/SB.Infrastructures/obj
+/SimpleBudget/Domain/Db
