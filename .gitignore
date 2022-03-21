@@ -14,3 +14,7 @@
 /SimpleBudget/SB.Infrastructures/bin/Debug/net6.0
 /SimpleBudget/SB.Infrastructures/obj
 /SimpleBudget/Domain/Db
+/SimpleBudget/Domain/bin/Release/net6.0
+/SimpleBudget/SB.Application/bin/Release/net6.0
+/SimpleBudget/SB.Infrastructures/bin/Release/net6.0
+/SimpleBudget/SimpleBudget/bin/Release/net6.0-windows
