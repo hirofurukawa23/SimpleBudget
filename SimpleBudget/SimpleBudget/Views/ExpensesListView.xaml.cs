@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SimpleBudget
+namespace SB.Presentation.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// ExpensesListView.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ExpensesListView : Window
     {
-        public MainWindow()
+        public ExpensesListView()
         {
             InitializeComponent();
         }

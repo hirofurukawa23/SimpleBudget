@@ -41,6 +41,15 @@ namespace SB.Domain.ValueObjects
         public int Day { get; }
 
         /// <summary>
+        /// スラッシュ付きの日付
+        /// 例：2022/03/22
+        /// </summary>
+        public string DateWithSlash
+        {
+            get => $"{Year}/{Month.ToString("00")}/{Day.ToString("00")}";
+        }
+
+        /// <summary>
         /// DayOfWeekを取得する
         /// </summary>
         public DayOfWeek DayOfWeek
@@ -98,6 +107,7 @@ namespace SB.Domain.ValueObjects
         /// <returns></returns>
         public static bool operator ==(Date d1, Date d2)
         {
+            if (d1 is null) { return false; }
             return d1.Equals(d2);
         }
 
@@ -109,6 +119,11 @@ namespace SB.Domain.ValueObjects
         /// <returns></returns>
         public static bool operator !=(Date d1, Date d2)
         {
+            if (d1 is null)
+            {
+                if (d2 is null) { return false; }
+                if (d2 is object) { return true; }
+            }
             return !d1.Equals(d2);
         }
 

@@ -7,7 +7,18 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Compile Update="Views\Dialogs\ExpenseInputDialogView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ExpensesListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Dialogs\ExpenseInputDialogView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ExpensesListView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
