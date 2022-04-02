@@ -62,5 +62,4 @@
     - SimpleBudget.Application
     - SimpleBudget.Test
 
-#### SimpleBudget.Domain
-ドメイン領域であり、主に機能に関するコア部分を作成するプロジェクトにする。
+
