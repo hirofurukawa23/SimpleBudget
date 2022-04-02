@@ -42,6 +42,15 @@ namespace SB.Domain.ValueObjects
 
         /// <summary>
         /// スラッシュ付きの日付
+        /// 例：2022/03
+        /// </summary>
+        public string MonthWithSlash
+        {
+            get => $"{Year}/{Month.ToString("00")}";
+        }
+
+        /// <summary>
+        /// スラッシュ付きの日付
         /// 例：2022/03/22
         /// </summary>
         public string DateWithSlash

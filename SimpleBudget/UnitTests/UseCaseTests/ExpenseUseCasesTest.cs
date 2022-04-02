@@ -34,11 +34,11 @@ namespace UnitTests.UseCaseTests
         [TestMethod]
         public void UpdateExpenseTest()
         {
-            var date = new Date(2022, 3, 19);
-            var memo = new Memo("Just a memo for test, and it's updated second.");
-            var yen = new Yen(10000);
+            var useCase1 = new GetExpensesUseCase();
+            var expenses = useCase1.Execute(null, null);
+            var obj = expenses.Datas.First();
 
-            var entity = new ExpenseFactory().Recreate(date, memo, yen, 1);
+            var entity = new ExpenseFactory().Recreate(obj.Date, obj.Memo, obj.Yen, (int)obj.Id);
 
             //ExpenseEntityを作成する
             var useCase = new CreateOrUpdateExpenseUseCase();
@@ -104,8 +104,12 @@ namespace UnitTests.UseCaseTests
         [TestMethod]
         public void GetExpenseUseCaseTest()
         {
+            var useCase1 = new GetExpensesUseCase();
+            //期間内すべての支出を取得する
+            var expenses = useCase1.Execute(null, null);
+
             var useCase = new GetExpenseUseCase();
-            var expense = useCase.Execute(1);
+            var expense = useCase.Execute((int)expenses.Datas.First().Id);
             Assert.IsNotNull(expense);
         }
 
@@ -126,8 +130,5 @@ namespace UnitTests.UseCaseTests
         }
 
         #endregion
-
-
-
     }
 }

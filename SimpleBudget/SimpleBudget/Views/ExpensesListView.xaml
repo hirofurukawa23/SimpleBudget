@@ -9,7 +9,7 @@
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
         WindowStartupLocation="CenterScreen"
-        Title="{Binding Title}" Height="350" Width="455">
+        Title="{Binding Title}" Height="380" Width="550">
     <Grid>
         <DockPanel>
 
@@ -19,10 +19,15 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" 
                             Grid.Column="0" 
+                            Grid.Row="0"
                             HorizontalAlignment="Left"
-                            Margin="5,5,0,5">
+                            Margin="10,5,0,5">
                     <Button Width="90" 
                             Height="24"
                             Command="{Binding CreateCommand}"
@@ -41,12 +46,29 @@
                             Content="削除" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" 
+                            Grid.Column="0" 
+                            Grid.Row="1"
+                            HorizontalAlignment="Left"
+                            Margin="10,0,0,5">
+                    <Button Width="90" 
+                            Height="24" 
+                            Margin="0,0,0,0"
+                            Command="{Binding MonthlyBudgetCommand}"
+                            Content="予算入力" />
+                    <Button Width="90" 
+                            Height="24" 
+                            Margin="10,0,0,0"
+                            Command="{Binding MonthlyAggregateCommand}"
+                            Content="月次集計" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
                             Grid.Column="1" 
+                            Grid.Row="1"
                             HorizontalAlignment="Right"
-                            Margin="0,5,10,5">
+                            Margin="0,0,10,5">
                     <Button Width="90" 
                             Height="24"
-                            Margin="10,0,0,0"
+                            Margin="10,0,10,0"
                             Command="{Binding CloseCommand}"
                             Content="閉じる" />
                 </StackPanel>
@@ -94,7 +116,7 @@
                         Margin="10,10,10,0">
                 <DataGrid
                     VerticalAlignment="Top"
-                    Height="214"
+                    Height="219"
                     ItemsSource="{Binding Rows}"
                     AutoGenerateColumns="False"
                     CanUserReorderColumns="False"
@@ -134,7 +156,7 @@
                         </DataGridTemplateColumn>
                         
                         <!-- 支出した日 -->
-                        <DataGridTemplateColumn Width="120">
+                        <DataGridTemplateColumn Width="150">
                             <DataGridTemplateColumn.Header>
                                 <TextBlock Text="支出日"></TextBlock>
                             </DataGridTemplateColumn.Header>
@@ -142,7 +164,7 @@
                                 <DataTemplate>
                                     <TextBox
                                         Text="{Binding Path=ExpenseDate}"
-                                        Width="115"
+                                        FontSize="16px"
                                         HorizontalContentAlignment="Left"
                                         IsReadOnly="True"
                                         BorderThickness="0"
@@ -152,7 +174,7 @@
                         </DataGridTemplateColumn>
                         
                         <!-- 支出した金額 -->
-                        <DataGridTemplateColumn Width="120">
+                        <DataGridTemplateColumn Width="150">
                             <DataGridTemplateColumn.Header>
                                 <TextBlock Text="金額"></TextBlock>
                             </DataGridTemplateColumn.Header>
@@ -160,6 +182,7 @@
                                 <DataTemplate>
                                     <TextBox
                                         Text="{Binding Path=Amount}"
+                                        FontSize="16px"
                                         HorizontalContentAlignment="Right"
                                         IsReadOnly="True"
                                         BorderThickness="0"
@@ -169,7 +192,7 @@
                         </DataGridTemplateColumn>
                         
                         <!-- システム登録日 -->
-                        <DataGridTemplateColumn Width="120">
+                        <DataGridTemplateColumn Width="150">
                             <DataGridTemplateColumn.Header>
                                 <TextBlock Text="登録日"></TextBlock>
                             </DataGridTemplateColumn.Header>
@@ -177,6 +200,7 @@
                                 <DataTemplate>
                                     <TextBox
                                         Text="{Binding RegisterDate}"
+                                        FontSize="16px"
                                         IsReadOnly="True"
                                         BorderThickness="0"
                                         BorderBrush="Transparent"/>

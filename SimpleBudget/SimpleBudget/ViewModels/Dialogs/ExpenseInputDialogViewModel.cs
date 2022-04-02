@@ -1,5 +1,4 @@
 ﻿using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Services.Dialogs;
 using SB.Application.UseCases;
 using SB.Domain.Entities;
@@ -10,12 +9,12 @@ using System.Windows;
 
 namespace SB.Presentation.ViewModels.Dialogs
 {
-    public class ExpenseInputDialogViewModel : BindableBase, IDialogAware
+    public class ExpenseInputDialogViewModel : DialogBase
     {
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public ExpenseInputDialogViewModel()
+        public ExpenseInputDialogViewModel() : base("支出入力")
         {
             UpdateCommand = new DelegateCommand(UpdateAction);
             ClearCommand = new DelegateCommand(ClearAction);
@@ -23,11 +22,6 @@ namespace SB.Presentation.ViewModels.Dialogs
         }
 
         #region Properties
-
-        /// <summary>
-        /// タイトル
-        /// </summary>
-        public string Title => "支出入力";
 
         /// <summary>
         /// 支出データのId
@@ -112,16 +106,6 @@ namespace SB.Presentation.ViewModels.Dialogs
             RaiseRequestClose(new DialogResult(ButtonResult.OK));
         }
 
-        public event Action<IDialogResult> RequestClose;
-        public bool CanCloseDialog()
-        {
-            return true;
-        }
-        public virtual void RaiseRequestClose(IDialogResult dialogResult)
-        {
-            RequestClose?.Invoke(dialogResult);
-        }
-
         #endregion
 
         #region Public Methods
@@ -130,7 +114,7 @@ namespace SB.Presentation.ViewModels.Dialogs
         /// 画面起動時
         /// </summary>
         /// <param name="parameters"></param>
-        public void OnDialogOpened(IDialogParameters parameters)
+        public override void OnDialogOpened(IDialogParameters parameters)
         {
             var id = parameters.GetValue<string>("Id");
             if (!string.IsNullOrEmpty(id) && int.TryParse(id, out var convertedId))
@@ -140,11 +124,6 @@ namespace SB.Presentation.ViewModels.Dialogs
                 MappingToControl(expense);
             }
         }
-
-        /// <summary>
-        /// 画面閉設時
-        /// </summary>
-        public void OnDialogClosed() { }
 
         #endregion
 

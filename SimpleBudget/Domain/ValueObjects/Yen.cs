@@ -45,6 +45,18 @@
         }
 
         /// <summary>
+        /// 3桁区切りの文字列を取得する
+        /// 例：-3,000,000
+        /// </summary>
+        public string WithCommaRelative
+        {
+            get
+            {
+                return $"{RelativeValue:#,0}";
+            }
+        }
+
+        /// <summary>
         /// 等価比較
         /// </summary>
         /// <param name="other"></param>

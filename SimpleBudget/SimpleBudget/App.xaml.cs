@@ -1,6 +1,7 @@
 ﻿using Prism.Ioc;
 using Prism.Unity;
 using SB.Infrastructures;
+using SB.Presentation.ViewModels.ChildViewModels;
 using SB.Presentation.ViewModels.Dialogs;
 using SB.Presentation.Views;
 using SB.Presentation.Views.Dialogs;
@@ -23,6 +24,7 @@ namespace SimpleBudget
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterDialog<ExpenseInputDialogView, ExpenseInputDialogViewModel>();
+            containerRegistry.RegisterDialog<BudgetEvaluationListView, BudgetEvaluationListViewModel>();
         }
     }
 }

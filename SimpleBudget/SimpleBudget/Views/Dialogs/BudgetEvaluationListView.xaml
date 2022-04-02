@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="SB.Presentation.Views.Dialogs.BudgetEvaluationListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SB.Presentation.Views.Dialogs"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Width="450"
+             Height="280">
+    <Grid>
+        <DockPanel Margin="10,0,10,10">
+            <!-- フッター部分 -->
+            <StackPanel DockPanel.Dock="Bottom" 
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Command="{Binding CloseDialogCommand}" 
+                        CommandParameter="true" 
+                        Content="閉じる"
+                        Margin="5,0,5,0"
+                        Width="60"
+                        Height="24" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical"
+                        Margin="10,5,10,5">
+                <DataGrid
+                    VerticalAlignment="Top"
+                    Height="219"
+                    ItemsSource="{Binding Rows}"
+                    AutoGenerateColumns="False"
+                    CanUserReorderColumns="False"
+                    CanUserDeleteRows="False"
+                    CanUserResizeColumns="False"
+                    CanUserResizeRows="False"
+                    CanUserAddRows="False"
+                    CanUserSortColumns="False"
+                    RowHeaderWidth="0"
+                    HorizontalAlignment="Left"
+                    HorizontalScrollBarVisibility="Hidden">
+                    <DataGrid.Columns>
+                        <!-- 支出した日 -->
+                        <DataGridTemplateColumn Width="100">
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="年月"></TextBlock>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        Text="{Binding AggregateDate}"
+                                        FontSize="16px"
+                                        HorizontalContentAlignment="Left"
+                                        IsReadOnly="True"
+                                        BorderThickness="0"
+                                        BorderBrush="Transparent" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- 予算額 -->
+                        <DataGridTemplateColumn Width="100">
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="予算額"></TextBlock>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        Text="{Binding Budget}"
+                                        FontSize="16px"
+                                        HorizontalContentAlignment="Right"
+                                        IsReadOnly="True"
+                                        BorderThickness="0"
+                                        BorderBrush="Transparent"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- 支出した金額 -->
+                        <DataGridTemplateColumn Width="100">
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="支出"></TextBlock>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        Text="{Binding Amount}"
+                                        FontSize="16px"
+                                        HorizontalContentAlignment="Right"
+                                        IsReadOnly="True"
+                                        BorderThickness="0"
+                                        BorderBrush="Transparent"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- 収支 -->
+                        <DataGridTemplateColumn Width="100">
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="収支"></TextBlock>
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        Text="{Binding Balance}"
+                                        FontSize="16px"
+                                        Foreground="{Binding ColorOfBalance}"
+                                        HorizontalContentAlignment="Right"
+                                        IsReadOnly="True"
+                                        BorderThickness="0"
+                                        BorderBrush="Transparent"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</UserControl>

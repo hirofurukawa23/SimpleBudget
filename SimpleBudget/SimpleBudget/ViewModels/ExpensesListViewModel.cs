@@ -3,7 +3,6 @@ using Prism.Mvvm;
 using Prism.Services.Dialogs;
 using SB.Application.UseCases;
 using SB.Domain.ValueObjects;
-using SB.Infrastructures;
 using SB.Presentation.Helpers;
 using SB.Presentation.ViewModels.ChildViewModels;
 using SB.Presentation.Views.Dialogs;
@@ -31,6 +30,8 @@ namespace SB.Presentation.ViewModels
             EditCommand = new DelegateCommand(EditAction);
             CloseCommand = new DelegateCommand(CloseAction);
             DeleteCommand = new DelegateCommand(DeleteAction);
+            MonthlyBudgetCommand = new DelegateCommand(MonthlyBudgetAction);
+            MonthlyAggregateCommand = new DelegateCommand(MonthlyAggregateAction);
 
             //最新の支出一覧を生成する
             Rows = GetExpensesList(DateFrom, DateTo);
@@ -152,6 +153,25 @@ namespace SB.Presentation.ViewModels
             ShowMessageBox(resultFlg);
             Rows = GetExpensesList(DateFrom, DateTo);
             EnableHandler(Event.RenewList);
+        }
+
+        /// <summary>
+        /// 予算入力ボタン
+        /// </summary>
+        public DelegateCommand MonthlyBudgetCommand { get; private set; }
+        private void MonthlyBudgetAction()
+        {
+            MessageBox.Show("未実装");
+        }
+
+        /// <summary>
+        /// 月次集計ボタン
+        /// </summary>
+        public DelegateCommand MonthlyAggregateCommand { get; private set; }
+        private void MonthlyAggregateAction()
+        {
+            var param = new DialogParameters();
+            _dialogService.ShowDialog(nameof(BudgetEvaluationListView), param, r => { });
         }
 
         /// <summary>

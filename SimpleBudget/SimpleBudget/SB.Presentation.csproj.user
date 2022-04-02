@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\Dialogs\BudgetEvaluationListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Dialogs\ExpenseInputDialogView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -15,6 +18,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\Dialogs\BudgetEvaluationListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Dialogs\ExpenseInputDialogView.xaml">
       <SubType>Designer</SubType>
     </Page>
