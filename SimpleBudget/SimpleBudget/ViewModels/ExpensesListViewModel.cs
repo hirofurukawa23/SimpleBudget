@@ -30,7 +30,6 @@ namespace SB.Presentation.ViewModels
             EditCommand = new DelegateCommand(EditAction);
             CloseCommand = new DelegateCommand(CloseAction);
             DeleteCommand = new DelegateCommand(DeleteAction);
-            MonthlyBudgetCommand = new DelegateCommand(MonthlyBudgetAction);
             MonthlyAggregateCommand = new DelegateCommand(MonthlyAggregateAction);
 
             //最新の支出一覧を生成する
@@ -153,15 +152,6 @@ namespace SB.Presentation.ViewModels
             ShowMessageBox(resultFlg);
             Rows = GetExpensesList(DateFrom, DateTo);
             EnableHandler(Event.RenewList);
-        }
-
-        /// <summary>
-        /// 予算入力ボタン
-        /// </summary>
-        public DelegateCommand MonthlyBudgetCommand { get; private set; }
-        private void MonthlyBudgetAction()
-        {
-            MessageBox.Show("未実装");
         }
 
         /// <summary>
