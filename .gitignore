@@ -19,3 +19,7 @@
 /SimpleBudget/SB.Infrastructures/bin/Release/net6.0
 /SimpleBudget/SimpleBudget/bin/Release/net6.0-windows
 /SimpleBudget/UnitTests/bin/Release/net6.0
+/SimpleBudget/SB.Domain/.vs/SB.Domain
+/SimpleBudget/SB.Domain/bin
+/SimpleBudget/SB.Domain/Db
+/SimpleBudget/SB.Domain/obj
