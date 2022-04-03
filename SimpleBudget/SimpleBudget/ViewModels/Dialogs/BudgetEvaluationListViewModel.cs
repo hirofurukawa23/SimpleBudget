@@ -60,11 +60,12 @@ namespace SB.Presentation.ViewModels.Dialogs
         private ObservableCollection<BudgetEvaluateRowViewModel> GetEvaluateList()
         {
             var r = new ObservableCollection<BudgetEvaluateRowViewModel>();
-            var budget = new Yen(80000);
+            var budget = new Yen(80000);    //予算は固定で80,000円（仮）
             var aggregates = new GetAggregatesUseCase(AggregateType.Monthly).Execute();
             if (aggregates != null && aggregates.Datas.Any())
             {
-                foreach (var aggregate in aggregates.Datas)
+                //日付逆順にして表示する
+                foreach (var aggregate in aggregates.Datas.OrderByDescending(x => x.FirstDate.DateTime))
                 {
                     var evaluateItem = _budgetEvaluateItemFactory.Create(aggregate, budget);
                     r.Add(new BudgetEvaluateRowViewModel(this, evaluateItem));
